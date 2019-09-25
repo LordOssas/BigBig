@@ -14,10 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    @IBOutlet weak var labelForDice: UILabel!
+    //
+    let randomInt = Int.random(in: 1...6)
     @IBAction func buttonPress(_ sender: Any) {
         
     }
+    
 }
 
