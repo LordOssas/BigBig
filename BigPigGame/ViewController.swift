@@ -14,10 +14,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    @IBOutlet weak var labelForDice: UILabel!
+    //
+    let randomInt = Int.random(in: 1...6)
+    let totalNumber = 0
     @IBAction func buttonPress(_ sender: Any) {
-        
+        labelForDice.text = "You rolled a \(randomInt)!"
     }
+    
 }
 
