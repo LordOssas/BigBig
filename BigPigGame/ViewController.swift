@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var totalNumber = 0
     @IBAction func buttonPress(_ sender: Any) {
         if randomInt == 1 {
-            labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumber), is unchanged."
+            labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumber), is unchanged. "
         } else {
             labelForDice.text = "You rolled a \(randomInt)!"
             totalNumber = randomInt + totalNumber
