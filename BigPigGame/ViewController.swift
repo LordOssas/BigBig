@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var labelForDice: UILabel!
-    //
+    //     
     var randomInt = Int.random(in: 1...6)
     var totalNumber = 0
     @IBAction func buttonPress(_ sender: Any) {
