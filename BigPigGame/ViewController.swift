@@ -16,11 +16,15 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var labelForDice: UILabel!
     //
-    let randomInt = Int.random(in: 1...6)
-    let totalNumber = 0
+    var randomInt = Int.random(in: 1...6)
+    var totalNumber = 0
     @IBAction func buttonPress(_ sender: Any) {
-        labelForDice.text = "You rolled a \(randomInt)!"
+        if randomInt == 1 {
+            labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumber), is unchanged."
+        } else {
+            labelForDice.text = "You rolled a \(randomInt)!"
+            totalNumber = randomInt + totalNumber
+        }
     }
-    
 }
 
