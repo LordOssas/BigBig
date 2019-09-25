@@ -38,6 +38,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="labelForDice" destination="o7b-A5-p5Y" id="V5C-N3-2hu"/>
                         <outlet property="labelforDice" destination="o7b-A5-p5Y" id="Sbj-kS-bRP"/>
                     </connections>
                 </viewController>
