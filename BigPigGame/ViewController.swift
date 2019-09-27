@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         //
     }
     @IBAction func nextPlayerTurn(_ sender: Any) {
-        play1or2 = false;
+        
     }
 }
 
