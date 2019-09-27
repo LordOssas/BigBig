@@ -24,6 +24,7 @@
                                 <state key="normal" title="Roll Dice!"/>
                                 <connections>
                                     <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Fe-fj-jVb"/>
+                                    <action selector="labelForDice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pW6-8M-lUZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7b-A5-p5Y">
