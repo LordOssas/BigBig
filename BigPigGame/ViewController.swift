@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             } else {
                 if rolls == 0 {labelNumber.text = "Player 1"}
                 labelForDice.text = "You rolled a \(randomInt)!"
-                turnScoreVar += randomInt
+                turnScoreVar = randomInt + turnScoreVar
                 turnScore.text = "Turn Score: \(turnScoreVar)"
             }
             rolls += 1
