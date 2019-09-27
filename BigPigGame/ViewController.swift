@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             if randomInt == 1 {
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer1), is unchanged."
                 labelNumber.text = "Player 2"
-                break;
+                break
             } else {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 totalNumberPlayer1 = randomInt + totalNumberPlayer1
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
             if randomInt == 1 {
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer2), is unchanged."
                 labelNumber.text = "Player 2"
-                break;
+                break
             } else {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 totalNumberPlayer2 = randomInt + totalNumberPlayer2
