@@ -52,5 +52,23 @@ class ViewController: UIViewController {
     @IBAction func nextPlayerTurn(_ sender: Any) {
         
     }
+    
+    func winCondition() -> String
+    {
+        var returner: String
+        if(totalNumberPlayer1 == 300)
+        {
+            returner = "Player1 won with " + (String)(totalNumberPlayer1) + " points!"
+            return returner
+        }
+        else if(totalNumberPlayer2 == 300)
+        {
+            returner = "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
+            return returner
+        }
+        else {return "incorect calling of winCondition function."}
+    }
+    
+    
 }
 
