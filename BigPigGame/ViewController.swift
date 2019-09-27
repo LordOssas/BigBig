@@ -51,6 +51,7 @@ class ViewController: UIViewController {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar += randomInt
                 turnScore.text = "Turn Score: \(turnScoreVar)"
+                
             }
             rolls += 1
         }
@@ -61,6 +62,9 @@ class ViewController: UIViewController {
         labelNumber.text = play1or2 ? "Player 1" : "Player 2"
         if (play1or2) {totalNumberPlayer1 += turnScoreVar}
         else{totalNumberPlayer1 += turnScoreVar}
+        turnScoreVar = 0
+        turnScore.text = "Turn Score: \(turnScoreVar)"
+        
     }
     
     func winCondition() -> String
