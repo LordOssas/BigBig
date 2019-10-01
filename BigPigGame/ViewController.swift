@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var totalNumberPlayer2 = 0
     var turnScoreVar = 0
     var rolls = 0
+    var stopGame = false
     //
     @IBAction func buttonPress(_ sender: Any) {
         let randomInt = Int.random(in: 1...6)
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
         {
             if randomInt == 1 {
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer1), is unchanged."
-                Score.text = "Score: \(totalNumberPlayer1)"
+                Score.text = "Score: \(totalNumberPlayer2)"
                 turnScore.text = "Turn Score: 0"
                 rolls = 0
                 play1or2.toggle()
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar = randomInt + turnScoreVar
                 turnScore.text = "Turn Score: \(turnScoreVar)"
+                winCondition()
             }
             rolls += 1
         }
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         {
             if randomInt == 1 {
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer2), is unchanged."
-                Score.text = "Score: \(totalNumberPlayer2)"
+                Score.text = "Score: \(totalNumberPlayer1)"
                 play1or2.toggle()
                 rolls = 0
                 turnScoreVar = 0
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar += randomInt
                 turnScore.text = "Turn Score: \(turnScoreVar)"
-                
+                winCondition()
             }
             rolls += 1
         }
@@ -79,21 +81,18 @@ class ViewController: UIViewController {
         turnScore.text = "Turn Score: \(turnScoreVar)"
     }
     
-    func winCondition() -> String
+    func winCondition()
     {
-        var returner: String
-        if(totalNumberPlayer1 == 300)
+        if(totalNumberPlayer1 == 20)
         {
-            returner = "Player1 won with " + (String)(totalNumberPlayer1) + " points!"
-            return returner
+            labelForDice.text = "Player1 won with " + (String)(totalNumberPlayer1) + " points!"
+            stopGame.toggle()
         }
-        else if(totalNumberPlayer2 == 300)
+        else if(totalNumberPlayer2 == 20)
         {
-            returner = "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
-            return returner
+            labelForDice.text =  "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
+            stopGame.toggle()
         }
-        else {return "incorect calling of winCondition function."}
     }
-    
     
 }
