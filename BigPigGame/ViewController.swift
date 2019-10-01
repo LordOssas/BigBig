@@ -29,6 +29,7 @@ class ViewController: UIViewController {
                 rolls = 0
                 play1or2.toggle()
                 turnScoreVar = 0
+                turnScore.text = "Turn Score: \(totalNumberPlayer2)"
                 return
             } else {
                 if rolls == 0 {labelNumber.text = "Player 1"}
@@ -58,14 +59,24 @@ class ViewController: UIViewController {
         }
         //
     }
-    @IBAction func nextPlayerTurn(_ sender: Any) {
+    @IBAction func nextPlayerTurn(_ sender: Any)
+    {
+        if (play1or2)
+        {
+            totalNumberPlayer1 += turnScoreVar
+            Score.text = "Score: \(totalNumberPlayer2)"
+            labelNumber.text = "Player 2"
+        }
+        else
+        {
+            totalNumberPlayer2 += turnScoreVar
+            Score.text = "Score: \(totalNumberPlayer1)"
+            labelNumber.text = "Player 1"
+        }
         play1or2.toggle();
-        labelNumber.text = play1or2 ? "Player 1" : "Player 2"
-        if (play1or2) {totalNumberPlayer1 += turnScoreVar}
-        else{totalNumberPlayer1 += turnScoreVar}
+        //labelNumber.text = play1or2 ? "Player 1" : "Player 2"
         turnScoreVar = 0
         turnScore.text = "Turn Score: \(turnScoreVar)"
-        
     }
     
     func winCondition() -> String
@@ -81,9 +92,8 @@ class ViewController: UIViewController {
             returner = "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
             return returner
         }
-        else {
-            return "incorect calling of winCondition function."
-            
-        }
+        else {return "incorect calling of winCondition function."}
     }
+    
+    
 }
