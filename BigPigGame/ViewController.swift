@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             if randomInt == 1 {
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer1), is unchanged."
                 Score.text = "Score: \(totalNumberPlayer1)"
+                turnScore.text = "Turn Score: 0"
                 rolls = 0
                 play1or2.toggle()
                 turnScoreVar = 0
