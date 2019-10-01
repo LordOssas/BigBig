@@ -67,8 +67,8 @@
                                 <color key="textColor" red="0.83131741751269039" green="0.41308387954149811" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="y0C-EK-hbq">
-                                <rect key="frame" x="66" y="414" width="282" height="152"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2h-Ju-Tcq">
+                                <rect key="frame" x="88" y="420" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -76,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="Dice" destination="c2h-Ju-Tcq" id="aTq-Ju-sTy"/>
                         <outlet property="Score" destination="YOU-0v-cUr" id="mhy-g4-ZG9"/>
                         <outlet property="labelForDice" destination="o7b-A5-p5Y" id="EGA-m8-4WF"/>
                         <outlet property="labelNumber" destination="sP8-mg-oZn" id="w89-lU-U2n"/>
@@ -87,7 +88,4 @@
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="download" width="229" height="220"/>
-    </resources>
 </document>
