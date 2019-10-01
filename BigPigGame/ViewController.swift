@@ -81,8 +81,9 @@ class ViewController: UIViewController {
             returner = "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
             return returner
         }
-        else {return "incorect calling of winCondition function."}
+        else {
+            return "incorect calling of winCondition function."
+            
+        }
     }
-    
-    
 }
