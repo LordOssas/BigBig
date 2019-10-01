@@ -4,10 +4,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         labelNumber.text = "Player 1"
+        dice.image = UIImage(named:"download")
+        
         // Do any additional setup after loading the view.
     }
     
     
+    @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var turnScore: UILabel!
     @IBOutlet weak var Score: UILabel!
     @IBOutlet var labelForDice: UILabel!
@@ -23,6 +26,7 @@ class ViewController: UIViewController {
         if play1or2
         {
             if randomInt == 1 {
+                changeDice(roll: randomInt)
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer1), is unchanged."
                 Score.text = "Score: \(totalNumberPlayer1)"
                 turnScore.text = "Turn Score: 0"
@@ -31,6 +35,7 @@ class ViewController: UIViewController {
                 turnScoreVar = 0
                 return
             } else {
+                changeDice(roll: randomInt)
                 if rolls == 0 {labelNumber.text = "Player 1"}
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar = randomInt + turnScoreVar
@@ -41,6 +46,7 @@ class ViewController: UIViewController {
         if !play1or2
         {
             if randomInt == 1 {
+                changeDice(roll: 1)
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer2), is unchanged."
                 Score.text = "Score: \(totalNumberPlayer2)"
                 play1or2.toggle()
@@ -48,6 +54,7 @@ class ViewController: UIViewController {
                 turnScoreVar = 0
                 return
             } else {
+                changeDice(roll: randomInt)
                 if rolls == 0 {labelNumber.text = "Player 2"}
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar += randomInt
@@ -67,7 +74,26 @@ class ViewController: UIViewController {
         turnScore.text = "Turn Score: \(turnScoreVar)"
         
     }
-    
+    func changeDice(roll:Int)
+    {
+        switch roll {
+        case 1:
+            dice.image = UIImage(named:"Dice1")
+        case 2:
+            dice.image = UIImage(named:"Dice2")
+        case 3:
+            dice.image = UIImage(named:"Dice3")
+        case 4:
+            dice.image = UIImage(named:"Dice4")
+        case 5:
+            dice.image = UIImage(named:"Dice5")
+        case 6:
+            dice.image = UIImage(named:"Dice6")
+        default:
+            dice.image = UIImage(named: "download")
+        }
+        
+    }
     func winCondition() -> String
     {
         var returner: String
