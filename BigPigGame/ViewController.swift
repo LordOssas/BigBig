@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     var totalNumberPlayer2 = 0
     var turnScoreVar = 0
     var rolls = 0
-    var stopGame = false
     //
     @IBAction func buttonPress(_ sender: Any) {
         let randomInt = Int.random(in: 1...6)
@@ -83,15 +82,14 @@ class ViewController: UIViewController {
     
     func winCondition()
     {
-        if(totalNumberPlayer1 == 20)
+        if(totalNumberPlayer1 > 20)
         {
-            labelForDice.text = "Player1 won with " + (String)(totalNumberPlayer1) + " points!"
-            stopGame.toggle()
+            labelForDice.text = "Player 1 won with " + (String)(totalNumberPlayer1) + " points!"
         }
-        else if(totalNumberPlayer2 == 20)
+            
+        else if(totalNumberPlayer2 > 20)
         {
-            labelForDice.text =  "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
-            stopGame.toggle()
+            labelForDice.text =  "Player 2 won with " + (String)(totalNumberPlayer2) + " points!"
         }
     }
     
