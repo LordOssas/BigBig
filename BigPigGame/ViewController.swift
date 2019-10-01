@@ -26,13 +26,13 @@ class ViewController: UIViewController {
         if play1or2
         {
             if randomInt == 1 {
-                changeDice(roll: randomInt)
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer1), is unchanged."
-                Score.text = "Score: \(totalNumberPlayer1)"
+                Score.text = "Score: \(totalNumberPlayer2)"
                 turnScore.text = "Turn Score: 0"
                 rolls = 0
                 play1or2.toggle()
                 turnScoreVar = 0
+                turnScore.text = "Turn Score: \(totalNumberPlayer2)"
                 return
             } else {
                 changeDice(roll: randomInt)
@@ -40,6 +40,7 @@ class ViewController: UIViewController {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar = randomInt + turnScoreVar
                 turnScore.text = "Turn Score: \(turnScoreVar)"
+                winCondition()
             }
             rolls += 1
         }
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
             if randomInt == 1 {
                 changeDice(roll: 1)
                 labelForDice.text = "You rolled a \(randomInt)! Unforunately, you busted, but your total score, \(totalNumberPlayer2), is unchanged."
-                Score.text = "Score: \(totalNumberPlayer2)"
+                Score.text = "Score: \(totalNumberPlayer1)"
                 play1or2.toggle()
                 rolls = 0
                 turnScoreVar = 0
@@ -59,20 +60,30 @@ class ViewController: UIViewController {
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar += randomInt
                 turnScore.text = "Turn Score: \(turnScoreVar)"
-                
+                winCondition()
             }
             rolls += 1
         }
         //
     }
-    @IBAction func nextPlayerTurn(_ sender: Any) {
+    @IBAction func nextPlayerTurn(_ sender: Any)
+    {
+        if (play1or2)
+        {
+            totalNumberPlayer1 += turnScoreVar
+            Score.text = "Score: \(totalNumberPlayer2)"
+            labelNumber.text = "Player 2"
+        }
+        else
+        {
+            totalNumberPlayer2 += turnScoreVar
+            Score.text = "Score: \(totalNumberPlayer1)"
+            labelNumber.text = "Player 1"
+        }
         play1or2.toggle();
-        labelNumber.text = play1or2 ? "Player 1" : "Player 2"
-        if (play1or2) {totalNumberPlayer1 += turnScoreVar}
-        else{totalNumberPlayer1 += turnScoreVar}
+        //labelNumber.text = play1or2 ? "Player 1" : "Player 2"
         turnScoreVar = 0
         turnScore.text = "Turn Score: \(turnScoreVar)"
-        
     }
     func changeDice(roll:Int)
     {
@@ -96,20 +107,15 @@ class ViewController: UIViewController {
     }
     func winCondition() -> String
     {
-        var returner: String
-        if(totalNumberPlayer1 == 300)
+        if(totalNumberPlayer1 > 20)
         {
-            returner = "Player1 won with " + (String)(totalNumberPlayer1) + " points!"
-            return returner
+            labelForDice.text = "Player 1 won with " + (String)(totalNumberPlayer1) + " points!"
         }
-        else if(totalNumberPlayer2 == 300)
-        {
-            returner = "Player2 won with " + (String)(totalNumberPlayer2) + " points!"
-            return returner
-        }
-        else {
-            return "incorect calling of winCondition function."
             
+        else if(totalNumberPlayer2 > 20)
+        {
+            labelForDice.text =  "Player 2 won with " + (String)(totalNumberPlayer2) + " points!"
         }
     }
+    
 }
