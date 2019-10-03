@@ -72,6 +72,7 @@ class ViewController: UIViewController {
     }
     @IBAction func nextPlayerTurn(_ sender: Any)
     {
+        
         if (play1or2)
         {
             totalNumberPlayer1 += turnScoreVar
@@ -88,6 +89,7 @@ class ViewController: UIViewController {
         //labelNumber.text = play1or2 ? "Player 1" : "Player 2"
         turnScoreVar = 0
         turnScore.text = "Turn Score: \(turnScoreVar)"
+        winCondition()
     }
     func changeDice(roll:Int)
     {
