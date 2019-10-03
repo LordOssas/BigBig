@@ -33,6 +33,7 @@ class ViewController: UIViewController {
                 play1or2.toggle()
                 turnScoreVar = 0
                 turnScore.text = "Turn Score: \(totalNumberPlayer2)"
+                
                 return
             } else {
                 changeDice(roll: randomInt)
