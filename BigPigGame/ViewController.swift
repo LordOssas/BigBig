@@ -106,6 +106,7 @@ class ViewController: UIViewController {
         }
         
     }
+    //
     func winCondition()
     {
         if(totalNumberPlayer1 > 20)
