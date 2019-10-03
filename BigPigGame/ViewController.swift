@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     }
     
     
+    @IBOutlet var pigPics: UIImageView!
     @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var turnScore: UILabel!
     @IBOutlet weak var Score: UILabel!
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
     //
     @IBAction func buttonPress(_ sender: Any) {
         let randomInt = Int.random(in: 1...6)
+        let percentage = Int.random(in: 1...100)
+        pigPics.image = percentage < 25 ? UIImage(named: "1") : percentage > 25 && percentage < 50 ? UIImage(named: "2") : percentage > 50 && percentage < 75 ? UIImage(named: "3") : UIImage(named: "4")
         if play1or2
         {
             if randomInt == 1 {
