@@ -36,11 +36,14 @@ class ViewController: UIViewController {
                 play1or2.toggle()
                 turnScoreVar = 0
                 turnScore.text = "Turn Score: \(totalNumberPlayer2)"
+                nextTurn.isEnabled = false;
                 
                 return
             } else {
                 changeDice(roll: randomInt)
-                if rolls == 0 {labelNumber.text = "Player 1"}
+                if rolls == 0 {labelNumber.text = "Player 1"
+                    nextTurn.isEnabled = true;
+                }
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar = randomInt + turnScoreVar
                 turnScore.text = "Turn Score: \(turnScoreVar)"
@@ -57,10 +60,13 @@ class ViewController: UIViewController {
                 play1or2.toggle()
                 rolls = 0
                 turnScoreVar = 0
+                nextTurn.isEnabled = false;
                 return
             } else {
                 changeDice(roll: randomInt)
-                if rolls == 0 {labelNumber.text = "Player 2"}
+                if rolls == 0 {labelNumber.text = "Player 2"
+                    nextTurn.isEnabled = true;
+                }
                 labelForDice.text = "You rolled a \(randomInt)!"
                 turnScoreVar += randomInt
                 turnScore.text = "Turn Score: \(turnScoreVar)"
@@ -112,16 +118,23 @@ class ViewController: UIViewController {
         
     }
     //
+    @IBOutlet weak var nextTurn: UIButton!
+    @IBOutlet weak var rollDice: UIButton!
     func winCondition()
     {
         if(totalNumberPlayer1 > 20)
         {
             labelForDice.text = "Player 1 won with " + (String)(totalNumberPlayer1) + " points!"
+            rollDice.isEnabled = false;
+            nextTurn.isEnabled = false;
+            
         }
             
         else if(totalNumberPlayer2 > 20)
         {
             labelForDice.text =  "Player 2 won with " + (String)(totalNumberPlayer2) + " points!"
+            rollDice.isEnabled = false;
+            nextTurn.isEnabled = false;
         }
     }
     
